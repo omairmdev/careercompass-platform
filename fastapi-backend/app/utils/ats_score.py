@@ -3,7 +3,7 @@ import unicodedata
 from collections import Counter
 import json
 
-import PyPDF2
+import pypdf
 from docx import Document
 import spacy
 from sentence_transformers import SentenceTransformer, util
@@ -30,7 +30,7 @@ print("Models loaded successfully!")
 def extract_text_from_pdf(pdf_path):
     try:
         with open(pdf_path, 'rb') as file:
-            pdf_reader = PyPDF2.PdfReader(file)
+            pdf_reader = pypdf.PdfReader(file)
             text = ""
             for page in pdf_reader.pages:
                 text += page.extract_text() or ""
